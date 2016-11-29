@@ -1,4 +1,4 @@
-package ru.nsu.ccfit.dymova.shop.controllers
+package ru.nsu.ccfit.dymova.shop.rest
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
@@ -7,11 +7,12 @@ import ru.nsu.ccfit.dymova.shop.domain.ProductRepository
 import ru.nsu.ccfit.dymova.shop.domain.entities.Product
 
 @RestController
+@RequestMapping("/entities/Product")
 class ProductController {
     @Autowired
     private lateinit var repository: ProductRepository
 
-    @RequestMapping("/product")
-    fun getProducts(): MutableIterable<Product>? = repository.findAll()
+    @RequestMapping
+    fun get(): MutableIterable<Product>? = repository.findAll()
 
 }
