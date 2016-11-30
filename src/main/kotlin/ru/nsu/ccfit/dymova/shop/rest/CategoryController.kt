@@ -16,7 +16,7 @@ class CategoryController {
     fun get(): MutableIterable<Category>? = repository.findAll()
 
     @RequestMapping("/Categories")
-    fun getProducts(model: Model): String {
+    fun getCategories(model: Model): String {
         model.addAttribute("categories", repository.findAll())
         return "categories"
     }

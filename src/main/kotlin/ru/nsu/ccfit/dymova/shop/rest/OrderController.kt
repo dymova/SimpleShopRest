@@ -18,7 +18,7 @@ class OrderController {
     fun get(): MutableIterable<Order>? = repository.findAll()
 
     @RequestMapping("/Orders")
-    fun getProducts(model: Model): String {
+    fun getOrders(model: Model): String {
         model.addAttribute("orders", repository.findAll())
         return "orders"
     }
