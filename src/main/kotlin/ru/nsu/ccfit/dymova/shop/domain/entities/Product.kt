@@ -12,7 +12,7 @@ class Product(
         var name: String,
         var description: String,
         var price: BigDecimal?,
-        @ManyToOne var category: Category?
+        @ManyToOne(fetch = FetchType.EAGER) var category: Category?
 ){
     constructor() : this(null, "", "", null, null)
     constructor(name: String, description: String, price: BigDecimal?, category: Category?) :

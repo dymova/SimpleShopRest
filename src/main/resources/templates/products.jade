@@ -1,0 +1,21 @@
+extends default
+
+block page-content
+    h1 Products
+    .data-table-container
+        table.table
+            thead
+                tr
+                    th Id
+                    th Name
+                    th Description
+                    th Price
+                    th Category
+            tbody
+                for item in model.products
+                    tr
+                        td #{item.id}
+                        td #{item.name}
+                        td #{item.description}
+                        td #{item.price}
+                        td #{item.category.name}

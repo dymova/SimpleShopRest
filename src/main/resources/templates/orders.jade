@@ -1,0 +1,17 @@
+extends default
+
+block page-content
+    h1 Orders
+    .data-table-container
+        table.table
+            thead
+                tr
+                    th Id
+                    th Data
+                    th Status
+            tbody
+                for item in model.orders
+                    tr
+                        td #{item.id}
+                        td #{item.data}
+                        td #{item.status}

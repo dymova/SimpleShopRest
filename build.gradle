@@ -35,4 +35,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.1.RELEASE'
     compile "com.h2database:h2"
+    compile "com.domingosuarez.boot:spring-boot-starter-jade4j:0.3.1"
+    compile 'org.webjars:bootstrap:3.3.6'
+    compile 'org.webjars:font-awesome:4.5.0'
+    compile group: 'org.webjars', name: 'datatables', version: '1.10.11'
+    compile group: 'org.webjars', name: 'jquery', version: '1.12.4'
 }

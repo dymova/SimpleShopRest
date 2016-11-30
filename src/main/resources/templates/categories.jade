@@ -1,0 +1,15 @@
+extends default
+
+block page-content
+    h1 Categories
+    .data-table-container
+        table.table
+            thead
+                tr
+                    th Id
+                    th Name
+            tbody
+                for item in model.categories
+                    tr
+                        td #{item.id}
+                        td #{item.name}
