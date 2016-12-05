@@ -45,7 +45,7 @@ jacocoTestReport {
 jacocoTestReport.dependsOn(test)
 
 dokka {
-//    outputFormat = 'javadoc'
+    outputFormat = 'javadoc'
     sourceDirs = files('src/main/kotlin')
 }
 
