@@ -15,15 +15,15 @@ enum class OrderStatus {
 @Entity
 @Table(name = "Orders")
 @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
-class Order (
+class Order(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id:Long?,
+        var id: Long?,
         var data: Timestamp?,
         var status: OrderStatus?,
         @OneToMany(cascade = arrayOf(CascadeType.PERSIST, CascadeType.MERGE))
         var products: MutableList<OrderItem>
-){
+) {
     constructor() : this(null, null, null, Collections.emptyList())
     constructor(data: Timestamp, status: OrderStatus?, products: MutableList<OrderItem>)
             : this(null, data, status, products)

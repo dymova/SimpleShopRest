@@ -28,6 +28,9 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
+    maven {
+        url  "http://dl.bintray.com/arturbosch/code-analysis"
+    }
 }
 
 springBoot {
@@ -48,6 +51,19 @@ dokka {
     outputFormat = 'javadoc'
     sourceDirs = files('src/main/kotlin')
 }
+configurations {
+    detekt
+}
+
+task detekt(type: JavaExec) {
+    main = "io.gitlab.arturbosch.detekt.cli.Main"
+    classpath = configurations.detekt
+    def input = "$project.projectDir.absolutePath"
+    def filters = ".*test.*"
+    def rulesets = ""
+    def params = [ '-p', input, '-f', filters, '-r', rulesets]
+    args(params)
+}
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -61,4 +77,5 @@ dependencies {
     compile 'org.webjars:font-awesome:4.5.0'
     compile group: 'org.webjars', name: 'datatables', version: '1.10.11'
     compile group: 'org.webjars', name: 'jquery', version: '1.12.4'
+    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.0.0.M4'
 }

@@ -3,11 +3,11 @@ package ru.nsu.ccfit.dymova.shop.domain.entities
 import javax.persistence.*
 
 @Entity
-class OrderItem (
+class OrderItem(
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id:Long?,
+        var id: Long?,
         @ManyToOne var product: Product?,
         var count: Long?
-){
+) {
     constructor() : this(null, null, null)
 }
