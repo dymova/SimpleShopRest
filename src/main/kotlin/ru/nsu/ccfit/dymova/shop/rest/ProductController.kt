@@ -16,8 +16,8 @@ class ProductController {
     /**
      * Gets list of existing products
      */
-    @RequestMapping("/entities/Product")
     @ResponseBody
+    @RequestMapping("/entities/Product")
     fun get(): MutableIterable<Product>? = repository.findAll()
 
     @RequestMapping("/Products")

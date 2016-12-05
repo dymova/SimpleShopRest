@@ -21,7 +21,7 @@ class Order (
         var id:Long?,
         var data: Timestamp?,
         var status: OrderStatus?,
-        @OneToMany(cascade = arrayOf(CascadeType.PERSIST), mappedBy = "order")
+        @OneToMany(cascade = arrayOf(CascadeType.PERSIST, CascadeType.MERGE))
         var products: MutableList<OrderItem>
 ){
     constructor() : this(null, null, null, Collections.emptyList())

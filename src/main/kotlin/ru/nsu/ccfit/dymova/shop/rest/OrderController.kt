@@ -13,12 +13,11 @@ class OrderController {
     @Autowired
     private lateinit var repository: OrderRepository
 
-    @RequestMapping("/entities/Order")
-    @ResponseBody
     /**
      * Gets list of existing orders
      */
-    @RequestMapping
+    @ResponseBody
+    @RequestMapping("/entities/Order")
     fun get(): MutableIterable<Order>? = repository.findAll()
 
     @RequestMapping("/Orders")

@@ -7,8 +7,7 @@ class OrderItem (
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id:Long?,
         @ManyToOne var product: Product?,
-        var count: Long?,
-        @ManyToOne var order: Order?
+        var count: Long?
 ){
-    constructor() : this(null, null, null, null)
+    constructor() : this(null, null, null)
 }
