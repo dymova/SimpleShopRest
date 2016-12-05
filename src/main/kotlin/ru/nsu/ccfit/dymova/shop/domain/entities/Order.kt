@@ -25,4 +25,6 @@ class Order (
         var products: MutableList<OrderItem>
 ){
     constructor() : this(null, null, null, Collections.emptyList())
+    constructor(data: Timestamp, status: OrderStatus?, products: MutableList<OrderItem>)
+            : this(null, data, status, products)
 }

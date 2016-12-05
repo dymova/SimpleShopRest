@@ -17,6 +17,7 @@ apply plugin: 'kotlin'
 apply plugin: 'spring-boot'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: "jacoco"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,9 +31,24 @@ springBoot {
     mainClass = 'ru.nsu.ccfit.dymova.shop.Application'
 }
 
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+//    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+jacocoTestReport.dependsOn(test)
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-test"
+    compile "org.springframework.boot:spring-boot-starter-test"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.1.RELEASE'
     compile "com.h2database:h2"
 }

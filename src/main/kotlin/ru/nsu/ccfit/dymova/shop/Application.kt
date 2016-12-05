@@ -30,7 +30,7 @@ open class Application {
         productRepository.save(Product("bread", "bread for toasts", BigDecimal(34), foodCategory))
 
         val orderItem = OrderItem(null, product, 42)
-        orderRepository.save(Order(null, Timestamp(System.currentTimeMillis()),
+        orderRepository.save(Order(Timestamp(System.currentTimeMillis()),
                 OrderStatus.PENDING_PAYMENT, mutableListOf(orderItem)))
     }
 }
