@@ -45,17 +45,7 @@ jacocoTestReport {
 jacocoTestReport.dependsOn(test)
 
 dokka {
-//    moduleName = 'data'
 //    outputFormat = 'javadoc'
-//    outputDirectory = "$buildDir/javadoc"
-//    processConfigurations = ['compile', 'extra']
-//    includes = ['packages.md', 'extra.md']
-//    samples = ['samples/basic.kt', 'samples/advanced.kt']
-//    linkMapping {
-//        dir = "src/main/kotlin"
-//        url = "https://github.com/cy6erGn0m/vertx3-lang-kotlin/blob/master/src/main/kotlin"
-//        suffix = "#L"
-//    }
     sourceDirs = files('src/main/kotlin')
 }
 
