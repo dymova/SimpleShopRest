@@ -12,6 +12,9 @@ class OrderController {
     @Autowired
     private lateinit var repository: OrderRepository
 
+    /**
+     * Gets list of existing orders
+     */
     @RequestMapping
     fun get(): MutableIterable<Order>? = repository.findAll()
 }

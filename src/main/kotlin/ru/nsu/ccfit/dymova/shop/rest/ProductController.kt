@@ -12,6 +12,9 @@ class ProductController {
     @Autowired
     private lateinit var repository: ProductRepository
 
+    /**
+     * Gets list of existing products
+     */
     @RequestMapping
     fun get(): MutableIterable<Product>? = repository.findAll()
 
