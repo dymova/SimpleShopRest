@@ -2,14 +2,16 @@ group 'ru.nsu.ccfit.dymova'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.4'
+    ext.kotlin_version = '1.0.5-2'
 
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.10"
     }
 }
 
@@ -17,6 +19,8 @@ apply plugin: 'kotlin'
 apply plugin: 'spring-boot'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: "jacoco"
+apply plugin: "org.jetbrains.dokka"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,9 +34,26 @@ springBoot {
     mainClass = 'ru.nsu.ccfit.dymova.shop.Application'
 }
 
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
+jacocoTestReport {
+    reports {
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+jacocoTestReport.dependsOn(test)
+
+dokka {
+    outputFormat = 'javadoc'
+    sourceDirs = files('src/main/kotlin')
+}
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-test"
+    compile "org.springframework.boot:spring-boot-starter-test"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.1.RELEASE'
     compile "com.h2database:h2"
     compile "com.domingosuarez.boot:spring-boot-starter-jade4j:0.3.1"
