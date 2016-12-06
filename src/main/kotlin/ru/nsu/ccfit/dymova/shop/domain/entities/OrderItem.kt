@@ -10,4 +10,5 @@ class OrderItem(
         var count: Long?
 ) {
     constructor() : this(null, null, null)
+    constructor(product: Product?, count: Long?) : this(null, product, count)
 }

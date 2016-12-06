@@ -10,15 +10,15 @@ import org.springframework.test.context.junit4.SpringRunner
 import ru.nsu.ccfit.dymova.shop.Application
 import ru.nsu.ccfit.dymova.shop.domain.OrderRepository
 import ru.nsu.ccfit.dymova.shop.domain.entities.*
-import ru.nsu.ccfit.dymova.shop.rest.OrderController
+import ru.nsu.ccfit.dymova.shop.restapi.OrderApi
 import java.math.BigDecimal
 import java.sql.Timestamp
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = arrayOf(Application::class))
-class OrderControllerTest {
+class OrderApiTest {
     @Autowired
-    private lateinit var controller : OrderController
+    private lateinit var controller : OrderApi
 
 
     @MockBean

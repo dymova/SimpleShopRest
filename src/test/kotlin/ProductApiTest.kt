@@ -11,14 +11,15 @@ import ru.nsu.ccfit.dymova.shop.Application
 import ru.nsu.ccfit.dymova.shop.domain.ProductRepository
 import ru.nsu.ccfit.dymova.shop.domain.entities.Category
 import ru.nsu.ccfit.dymova.shop.domain.entities.Product
-import ru.nsu.ccfit.dymova.shop.rest.ProductController
+import ru.nsu.ccfit.dymova.shop.restapi.ProductApi
+import ru.nsu.ccfit.dymova.shop.ui.ProductController
 import java.math.BigDecimal
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = arrayOf(Application::class))
-class ProductControllerTest {
+class ProductApiTest {
     @Autowired
-    private lateinit var controller : ProductController
+    private lateinit var controller : ProductApi
 
 
     @MockBean

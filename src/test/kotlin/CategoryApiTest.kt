@@ -10,13 +10,13 @@ import org.springframework.test.context.junit4.SpringRunner
 import ru.nsu.ccfit.dymova.shop.Application
 import ru.nsu.ccfit.dymova.shop.domain.CategoryRepository
 import ru.nsu.ccfit.dymova.shop.domain.entities.Category
-import ru.nsu.ccfit.dymova.shop.rest.CategoryController
+import ru.nsu.ccfit.dymova.shop.restapi.CategoryApi
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = arrayOf(Application::class))
-class CategoryControllerTest {
+class CategoryApiTest {
     @Autowired
-    private lateinit var controller: CategoryController
+    private lateinit var controller: CategoryApi
 
 
     @MockBean
